@@ -12,7 +12,6 @@ index.html              Page content
 assets/css/styles.css   Dark theme, layout, responsive rules
 assets/js/apps.js       App showcase data — edit this to add titles
 assets/js/main.js       Renders the app grid, nav, scroll reveal
-assets/cv/              CV PDF served by the "Download CV" button
 ```
 
 ## Adding a shipped app

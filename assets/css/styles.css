@@ -352,11 +352,62 @@ code {
 
 /* ── App showcase grid ──────────────────────────────────── */
 
+.app-showcase { position: relative; }
+
 .app-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
   gap: 22px;
 }
+
+/* Collapsed: clip to a measured height (set by JS) and fade the peeking
+   row so it reads as "there's more below". */
+.app-showcase.is-collapsed.has-more .app-grid {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 84px), transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 calc(100% - 84px), transparent 100%);
+}
+.app-showcase.has-more .app-grid {
+  transition: max-height .45s var(--ease);
+}
+
+.showcase-toggle-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+}
+.showcase-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 22px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-hi);
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: .9rem;
+  font-weight: 550;
+  cursor: pointer;
+  transition: transform .2s var(--ease), background .2s var(--ease),
+              border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.showcase-toggle:hover {
+  transform: translateY(-2px);
+  background: var(--surface-hi);
+  border-color: #3a4354;
+  box-shadow: var(--shadow);
+}
+.toggle-chevron {
+  width: 17px; height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform .3s var(--ease);
+}
+.showcase-toggle[aria-expanded="true"] .toggle-chevron { transform: rotate(180deg); }
 
 .app-card {
   display: flex;

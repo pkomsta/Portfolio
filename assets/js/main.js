@@ -84,7 +84,7 @@
     var links = app.links || {};
     var primaryUrl = safeUrl(links.appStore) || safeUrl(links.googlePlay) || safeUrl(links.website);
 
-    var card = el("article", "app-card reveal");
+    var card = el("article", "app-card");
     card.appendChild(buildMedia(app, primaryUrl));
 
     var body = el("div", "app-body");
@@ -157,6 +157,69 @@
 
     grid.appendChild(fragment);
     if (empty) empty.hidden = count > 0;
+
+    initShowcase(count);
+  }
+
+  /* One-row-by-default showcase with a faded peek and a show-more toggle. */
+  function initShowcase(count) {
+    var showcase = document.getElementById("appShowcase");
+    var grid = document.getElementById("appGrid");
+    var wrap = document.getElementById("showcaseToggleWrap");
+    var toggle = document.getElementById("showcaseToggle");
+    if (!showcase || !grid || !wrap || !toggle) return;
+
+    function cardsPerRow(cards) {
+      if (!cards.length) return 0;
+      var firstTop = cards[0].offsetTop;
+      var n = 0;
+      for (var i = 0; i < cards.length; i++) {
+        if (cards[i].offsetTop === firstTop) n++;
+        else break;
+      }
+      return n;
+    }
+
+    function apply() {
+      var cards = grid.querySelectorAll(".app-card");
+      if (!cards.length) { wrap.hidden = true; grid.style.maxHeight = ""; return; }
+
+      var perRow = cardsPerRow(cards);
+      var hasMore = cards.length > perRow;
+
+      showcase.classList.toggle("has-more", hasMore);
+      wrap.hidden = !hasMore;
+
+      if (!hasMore) {
+        grid.style.maxHeight = "";
+        return;
+      }
+
+      if (showcase.classList.contains("is-collapsed")) {
+        // First row height + a peek of the next row.
+        grid.style.maxHeight = (cards[0].offsetHeight + 60) + "px";
+      } else {
+        grid.style.maxHeight = grid.scrollHeight + "px";
+      }
+    }
+
+    toggle.addEventListener("click", function () {
+      var collapsed = showcase.classList.toggle("is-collapsed");
+      toggle.setAttribute("aria-expanded", String(!collapsed));
+      toggle.querySelector(".toggle-label").textContent =
+        collapsed ? "Show all games" : "Show fewer games";
+      apply();
+    });
+
+    var raf;
+    window.addEventListener("resize", function () {
+      window.cancelAnimationFrame(raf);
+      raf = window.requestAnimationFrame(apply);
+    }, { passive: true });
+
+    apply();
+    // Recompute once fonts/images settle, in case row height shifts.
+    window.addEventListener("load", apply);
   }
 
   function initReveal() {

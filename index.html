@@ -95,8 +95,17 @@
         </p>
       </header>
 
-      <div class="app-grid" id="appGrid">
-        <!-- Rendered from assets/js/apps.js -->
+      <div class="app-showcase is-collapsed" id="appShowcase">
+        <div class="app-grid" id="appGrid">
+          <!-- Rendered from assets/js/apps.js -->
+        </div>
+      </div>
+
+      <div class="showcase-toggle-wrap" id="showcaseToggleWrap" hidden>
+        <button class="showcase-toggle" id="showcaseToggle" type="button" aria-expanded="false" aria-controls="appGrid">
+          <span class="toggle-label">Show all games</span>
+          <svg class="toggle-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
       </div>
 
       <p class="grid-empty" id="gridEmpty" hidden>

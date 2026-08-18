@@ -35,6 +35,17 @@ window.APPS = [
     }
   },
   {
+    name: "Little Farmer — Farm Simulator",
+    tagline: "Build and grow your own farm in a cozy farming simulator.",
+    role: "Ported the game from the Cocos engine to Unity and remade almost every system from scratch.",
+    image: "https://play-lh.googleusercontent.com/ugZ82LuJNVdjKofl7bbSm3qLPRvNt-6JnAl6Oq_l3xek63m6ObJl0Z4MpTsFZ6xKFHzJOmkOfSKTy1aMX6GfDI0=s512",
+    tags: ["Unity", "C#", "Simulation", "iOS", "Android"],
+    links: {
+      appStore: "https://apps.apple.com/pl/app/little-farmer-farm-simulator/id6471968951?l=pl",
+      googlePlay: "https://play.google.com/store/apps/details?id=com.interactive.littlefarmer&hl=en"
+    }
+  },
+  {
     name: "Dig out! Gold Mine Game",
     tagline: "Dig deep into the mine for treasure and gold — mind the maze.",
     role: "Unity gameplay, SDK integration (Firebase, ad mediation, IAP) and LiveOps support.",
@@ -74,7 +85,8 @@ window.APPS = [
     tags: ["Unity", "C#", "Tower Defense", "iOS", "Android"],
     links: {
       appStore: "https://apps.apple.com/pl/app/idle-monster-td-tower-defense/id1608286308?l=pl",
-      googlePlay: "https://play.google.com/store/apps/details?id=com.SwellGames.IdleMonsterTDEvolved&hl=en"
+      googlePlay: "https://play.google.com/store/apps/details?id=com.SwellGames.IdleMonsterTDEvolved&hl=en",
+      steam: "https://store.steampowered.com/app/1887930/Idle_Monster_TD_Evolved/"
     }
   },
   {

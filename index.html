@@ -30,6 +30,7 @@
     </a>
     <nav class="nav" aria-label="Section navigation">
       <a href="#work">Work</a>
+      <a href="#projects">My Projects</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#about">About</a>
@@ -106,6 +107,31 @@
       <p class="grid-empty" id="gridEmpty" hidden>
         No apps listed yet — add entries to <code>assets/js/apps.js</code>.
       </p>
+    </div>
+  </section>
+
+  <!-- ── Personal projects ────────────────────────────────── -->
+  <section class="section projects" id="projects" aria-labelledby="projectsTitle">
+    <div class="wrap">
+      <header class="section-head">
+        <h2 id="projectsTitle">My Projects</h2>
+      </header>
+
+      <article class="project-card">
+        <a class="project-preview" href="projects/cloudward/index.html" aria-label="Open the interactive Cloudward scene">
+          <img src="projects/cloudward/preview.jpg" width="1280" height="720" loading="lazy" decoding="async"
+               alt="A stone bridge and grassy trail lead towards hilltop ruins in Cloudward">
+          <span class="project-action">Open interactive scene</span>
+        </a>
+        <div class="project-body">
+          <h3>Cloudward</h3>
+          <p>
+            Cloudward is an interactive first-person world with graphics <strong>created 100% through code</strong>.
+            Procedural techniques generate everything from terrain and buildings to plants, animals, and textures.
+          </p>
+          <p>Explore the highlands, dive into a sunken keep, or follow the trail to the Azure Spire. The scene renders in real time with WebGL.</p>
+        </div>
+      </article>
     </div>
   </section>
 
